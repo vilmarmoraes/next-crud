@@ -7,8 +7,8 @@ export default function Home() {
   const clientes = [
     new Cliente('Ana', 34, '1'),
     new Cliente('Bia', 45, '2'),
-    new Cliente('Bia', 45, '3'),
-    new Cliente('Bia', 45, '4'),
+    new Cliente('Carlos', 23, '3'),
+    new Cliente('Pedro', 54, '4'),
   ]
 
 
