@@ -4,6 +4,7 @@ import Cliente from '../core/Cliente'
 
 
 export default function Home() {
+  
   const clientes = [
     new Cliente('Ana', 34, '1'),
     new Cliente('Bia', 45, '2'),
@@ -11,15 +12,25 @@ export default function Home() {
     new Cliente('Pedro', 54, '4'),
   ]
 
+function clienteSelecionado(cliente: Cliente){
+  console.log(cliente.nome)
+}
+
+function clienteExcluido(cliente: Cliente){
+  console.log(`Excluir ${cliente.nome}`)
+}
 
   return (
     <div className={`
-    flex justify-center items-center h-screen
-    bg-gradient-to-r from-blue-300 to-blue-50
-    text-white
+      flex justify-center items-center h-screen
+      bg-gradient-to-r from-blue-300 to-blue-50
+      text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}></Tabela>
+        <Tabela clientes={clientes} 
+          clienteSelecionado={clienteSelecionado}
+          clienteExcluido={clienteExcluido}
+        />
       </Layout>
     </div>
   )
