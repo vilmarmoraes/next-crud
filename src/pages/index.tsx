@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Botao from '../components/Botao'
+import Formulario from '../components/Formulario'
 import Layout from '../components/Layout'
 import Tabela from '../components/Tabela'
 import Cliente from '../core/Cliente'
@@ -21,20 +23,43 @@ function clienteExcluido(cliente: Cliente){
   console.log(`Excluir ${cliente.nome}`)
 }
 
+function salvarCliente(cliente: Cliente) {
+ console.log(cliente)
+ setVisivel('tabela')
+}
+
+//Controla alternancia entre tabela e formulário
+const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+
   return (
     <div className={`
       flex justify-center items-center h-screen
       bg-gradient-to-r from-blue-300 to-blue-50
       text-white
     `}>
-      <Layout titulo="Cadastro Simples">
-        <div className="flex justify-end">
-          <Botao cor='green' classeName="mb-4">Novo Cliente</Botao>
-        </div>
-        <Tabela clientes={clientes} 
-          clienteSelecionado={clienteSelecionado}
-          clienteExcluido={clienteExcluido}
-        />
+      <Layout titulo="Cadastro Simples">        
+        {visivel === 'tabela' ? (
+          <>
+            <div className="flex justify-end">
+              <Botao cor='green' classeName="mb-4" 
+                onClick={() => setVisivel('form')}>
+                Novo Cliente
+              </Botao>
+            </div>
+
+            <Tabela clientes={clientes} 
+              clienteSelecionado={clienteSelecionado}
+              clienteExcluido={clienteExcluido}
+            />
+          </>
+        ) : (
+          <Formulario 
+            cliente={clientes[3]}
+            clienteMudou={salvarCliente}
+            cancelado={() => setVisivel('tabela')}
+          />          
+        )}
+
       </Layout>
     </div>
   )
