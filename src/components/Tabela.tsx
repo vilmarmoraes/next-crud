@@ -27,7 +27,7 @@ export default function Tabela(props: TabelaProps) {
         <tr
           key={cliente.id}
           //className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}>
-          className={`${i % 2 === 0 ? "bg-gray-500" : "bg-gray-400"}`}
+          className={`${i % 2 === 0 ? "bg-purple-300" : "bg-purple-200"}`}
         >
           <td className="text-left p-4">{cliente.id}</td>
           <td className="text-left p-4">{cliente.nome}</td>
