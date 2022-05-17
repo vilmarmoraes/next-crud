@@ -28,7 +28,7 @@ export default function Home() {
     <div
       className={`
       flex justify-center items-center h-screen
-      bg-gradient-to-r from-blue-300 to-blue-50
+      bg-gradient-to-r from-blue-500 to-purple-500
       text-white
     `}
     >
